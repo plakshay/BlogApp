@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/theme/theme.dart';
+import 'package:flutter_application_1/feature/auth/presentation/pages/login_in.dart';
 import 'package:flutter_application_1/feature/auth/presentation/pages/sign_up.dart';
 
 void main(){
@@ -22,7 +23,7 @@ class _MyAppState extends State<MyApp> {
       theme: AppTheme.darkThemeMode,
       debugShowCheckedModeBanner: false ,
       title: 'Blog App',
-      home: SignUpPage(),
+      home: LoginInPage(),
     );
   }
 }
