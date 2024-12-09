@@ -1,26 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/theme/app_pallete.dart';
-import 'package:flutter_application_1/feature/auth/presentation/pages/login_in.dart';
+import 'package:flutter_application_1/feature/auth/presentation/pages/sign_up.dart';
 import 'package:flutter_application_1/feature/auth/presentation/widgets/auth_field.dart';
 import 'package:flutter_application_1/feature/auth/presentation/widgets/auth_gradient_button.dart';
 
-class SignUpPage extends StatefulWidget {
-    static route ()=>MaterialPageRoute(
-                    builder: (context) => SignUpPage()
+class LoginInPage extends StatefulWidget {
+  static route ()=>MaterialPageRoute(
+                    builder: (context) => LoginInPage()
                     );
-  const SignUpPage({super.key});
+  const LoginInPage({super.key});
 
   @override
-  State<SignUpPage> createState() => _SignUpPageState();
-
-  
+  State<LoginInPage> createState() => _LoginInPageState();
 }
 
-class _SignUpPageState extends State<SignUpPage> {
-  
-
-
-  // the sign page has been created with the form but the text inside each textformfield cannot be retrieved, therefore we use controllers, 3 controllers needed(one for each field)
+class _LoginInPageState extends State<LoginInPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController(); 
   final nameController = TextEditingController(); //when the textediting controller is made, it is needed to be disposed off 
@@ -41,8 +35,6 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       // backgroundColor: Color.fromARGB(255, 255, 255, 255),
-
-      appBar: AppBar(),
       body: Padding(
         padding: const EdgeInsets.all(15.0),
         child: Form(
@@ -50,7 +42,7 @@ class _SignUpPageState extends State<SignUpPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text("Sign Up.",
+              const Text("Sign In.",
               style: TextStyle(
                 fontSize: 50,
                 fontWeight: FontWeight.bold
@@ -58,13 +50,7 @@ class _SignUpPageState extends State<SignUpPage> {
               const SizedBox(
                 height: 30,
               ),
-               AuthField(
-                hintText: 'Name', 
-                controller: nameController, 
-                ),
-              const SizedBox(
-                height: 15,
-              ),
+               
               AuthField(
                 hintText: 'Email', 
                 controller: emailController,
@@ -80,23 +66,24 @@ class _SignUpPageState extends State<SignUpPage> {
               const SizedBox(
                 height: 20,
               ),
-              const AuthGradientButton(x:'Sign Up'),
+              const AuthGradientButton(x:'Login'),
               const SizedBox(
                 height: 15,
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.push(context,
-                  LoginInPage.route(), 
+                  Navigator.push(context, 
+                  SignUpPage.route(),
+                    
                     );
                 },
                 child: RichText( // rich text allopws to write 2 texts in same line
                   text: TextSpan(
-                  text: 'Already have an account? ',
+                  text: 'Don\'t have an account? ',
                   style: Theme.of(context).textTheme.titleMedium,
                   children: [
                     TextSpan(
-                      text: 'Sign in',
+                      text: 'Sign Up',
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
                         color: AppPallete.gradient2,
                         fontWeight: FontWeight.bold
